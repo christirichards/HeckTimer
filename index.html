@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="index,follow">
+  <meta name="viewport" content="initial-scale=1">
+  <title>HeckTimer - An hourly quest timer for Kingdoms of Heckfire</title>
+    
+  <meta name="description" content="HeckTimer is a quest timer and schedule that will let you know what Kingdoms of Heckfire quests are coming up next.">
+  <meta name="image" content="http://hecktimer.com/images/social.jpg">
+  <meta name="author" content="Christi Richards">
+    
+  <meta itemprop="name" content="HeckTimer - An hourly quest timer for Kingdoms of Heckfire">
+  <meta itemprop="description" content="HeckTimer is a quest timer and schedule that will let you know what Kingdoms of Heckfire quests are coming up next.">
+  <meta itemprop="image" content="http://hecktimer.com/images/social.jpg">
+    
+  <meta name="og:title" content="HeckTimer - An hourly quest timer for Kingdoms of Heckfire">
+  <meta name="og:description" content="HeckTimer is a quest timer and schedule that will let you know what Kingdoms of Heckfire quests are coming up next.">
+  <meta name="og:image" content="http://hecktimer.com/images/social.jpg">
+  <meta name="og:url" content="http://hecktimer.com">
+  <meta name="og:site_name" content="HeckTimer - An hourly quest timer for Kingdoms of Heckfire">
+  <meta name="og:type" content="website">
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="HeckTimer - An hourly quest timer for Kingdoms of Heckfire">
+  <meta name="twitter:description" content="HeckTimer is a quest timer and schedule that will let you know what Kingdoms of Heckfire quests are coming up next.">
+  <meta name="twitter:site" content="@christirichards">
+  <meta name="twitter:creator" content="@christirichards">
+  <meta name="twitter:image:src" content="http://hecktimer.com/images/social.jpg">
+    
+  <link rel="apple-touch-icon" sizes="180x180" href="http://hecktimer.com/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="http://hecktimer.com/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="http://hecktimer.com/favicon-16x16.png">
+  <link rel="manifest" href="http://hecktimer.com/site.webmanifest">
+    
+  <meta name="apple-mobile-web-app-title" content="HeckTimer">
+  <meta name="application-name" content="HeckTimer">
+  <meta name="msapplication-TileColor" content="#ffc40d">
+  <meta name="theme-color" content=#002B36">
+  
+  <link rel="stylesheet" href="https://bootswatch.com/4/solar/bootstrap.min.css">
+  <link rel="canonical" href="http://hecktimer.com" />
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  
+  <script src="https://cdn.jsdelivr.net/npm/luxon@1.3.3/build/global/luxon.min.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127840649-1"></script>
+  
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-127840649-1');
+  </script>
+
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin-bottom: 1.5rem">
+<a class="navbar-brand mx-auto" href="http://hecktimer.com" title="HeckTimer">
+  <img src="http://hecktimer.com/images/icon.png" alt="HeckTimer">
+<h1 style="font-size: 1.2rem;display: inline-block; padding-top: 0; padding-bottom: 0; margin-bottom: 0; margin-right: 1rem; margin-left: .5rem">HeckTimer</h1>
+</a>
+<div class="collapse navbar-collapse" id="navbar-collapsed">
+</div>
+</nav>
+  <div class="container">
+    <div class="row">
+    <div class="col">
+      <div id="currentTime">
+      </div>
+      <div class="mb-5" id="quests">
+      </div>
+    </div>
+    <div class="col">
+      <h3>Kingdoms of Heckfire Quests Explanation</h3>
+      <ol>
+        <li>Quests are an important source of gems, speedups, and resources in Kingdoms of Heckfire. If you want to rank higher on the
+            leaderboards you need to complete as many as possible.</li>
+        <li>All quests are 55 minutes long and start at five past the hour.</li>
+        <li>Quests repeat every 11 hours. Some quests such as Troop Training and Monster Slaying occur more often
+            than others.</li>
+        <li>To earn points in a quest, you need to finish the activity within the quest period. Starting to
+            gather, build, research, or train troops before the quest starts is an effective strategy to gain an edge.</li>
+        <li>You only compete against other users in your realm and in your bracket range. The brackets
+            are based on your current Town Hall (TH) level (12 or lower, 13 to 15, 16 to 18, 18 to 22, and 23 or above).</li>
+        <li>Basic rewards are offered for one star, two stars, or three stars on each quest. These are
+            important and can help build the gems and speedups you need to top the quest leaderboards.</li>
+        <li>The best rewards are given for ranking within the Top 3 on the leaderboards. You should always aim to hit first place
+            on a quest every so often. Make sure you have enough resources, gems, and speedups before you start!</li>
+      </ol>
+      <hr>
+      <div class="alert alert-danger" role="alert">
+          <strong>HeckTimer also functions as a web app.</strong>  Save <a href="http://hecktimer.com" title="HeckTimer">HeckTimer.com</a> to your mobile device's home screen as a bookmark and view it more like a native mobile application!
+      <hr>
+      <p class="mb-0">View instructions for <a href="https://www.cultofmac.com/558499/how-to-add-bookmarks-to-your-iphone-home-screen/" title="Add bookmarks to your iOS home screen" target="_blank" style="text-decoration: none;"><i class="fa fa-apple" aria-hidden="true"></i> iOS</a> or <a href="https://www.androidpit.com/how-to-add-bookmark-android-home-screen" title="Add bookmarks to your Android home screen" target="_blank" style="text-decoration: none;"><i class="fa fa-android" aria-hidden="true"></i> Android</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <hr>
+        <p class="small text-center">
+          HeckTimer is not affiliated or endorsed by <a href="http://athinkingape.com/" target="_blank" title="A Thinking Ape Entertainment">A Thinking Ape Entertainment Ltd</a>.  All graphics are courtesy of the Kingdoms of Heckfire fan kit.
+         </p>
+         <p class="text-center">Created with <i class="fa fa-heart text-danger" aria-hidden="true"></i> by GrecianGoddess<br/>
+         <span class="small">Recreated from the original HeckTimer</span></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const { DateTime, Interval } = luxon;
+
+    setInterval(update, 1000)
+
+    function update() {
+      
+      var one = DateTime.fromISO('2018-02-13T06:05:00Z');
+      var ct = DateTime.local();
+      var int = Interval.fromDateTimes(one, ct).length('hours', true);
+      var i = Math.ceil(int - (11 * (Math.floor(int / 11))));
+      var t2 = (Math.ceil(int) - int) * 60;
+      var s = Math.round((t2 - Math.floor(t2)) * 60)
+      t2 = Math.floor(t2);
+
+      var quests = document.getElementById('quests')
+      var length = quests.childNodes.length;
+      for (l = 0; l < length; l++) {
+        quests.removeChild(quests.firstChild)
+      }
+      var domCurrentTime = document.getElementById('currentTime')
+      domCurrentTime.removeChild(domCurrentTime.firstChild)
+
+      for (j = 0; j < 11; j++) {
+        var k = i + j;
+        if (k > 11) {
+          k = k - 11;
+        }
+        var q = findQ(k)
+        if (j == 0) {
+          var m = 0;
+        } else {
+          var m = t2 + (60 * (j - 1))
+        }
+
+        quests.appendChild(createCard(ct, q, m, s))
+      }
+
+      var cte = document.createElement('p')
+      var attr = document.createAttribute('align')
+      attr.value = 'center'
+      cte.setAttributeNode(attr)
+      var ctt = document.createTextNode(ct.toLocaleString(DateTime.DATETIME_FULL))
+      cte.appendChild(ctt)
+
+      document.getElementById('currentTime').appendChild(cte)
+
+      function createCard(ct, q, m, s) {
+        var pe = document.createElement('p')
+        pe.className = 'card-text'
+        qt = ct.plus({ minutes: m, seconds: s + 1 })
+        if (m == 0) {
+          var pt = document.createTextNode('currently running quest')
+        } else {
+          if (m > 60) {
+            var hFull = m / 60
+            var h = Math.floor(hFull)
+            m = Math.round((hFull - h) * 60)
+            var pt = document.createTextNode('starts in ' + h + ' hours ' + m
+              + ' minutes ' + s + ' seconds @ '
+              + qt.toLocaleString(DateTime.TIME_SIMPLE))
+          } else {
+            var pt = document.createTextNode('starts in ' + m + ' minutes ' + s + ' seconds @ '
+              + qt.toLocaleString(DateTime.TIME_SIMPLE))
+          }
+        }
+
+        pe.appendChild(pt)
+        var he = document.createElement('h5')
+        he.className = 'card-title'
+        var ht = document.createTextNode(q)
+        he.appendChild(ht)
+        var div1 = document.createElement('div')
+        div1.className = 'card-body'
+        div1.appendChild(he)
+        div1.appendChild(pe)
+        var div2 = document.createElement('div')
+
+        switch (q) {
+          case 'Troop Training':
+            div2.className = 'card text-white bg-warning mx-auto my-2'
+            break;
+          case 'Monster Slaying':
+            div2.className = 'card text-white bg-danger mx-auto my-2'
+            break;
+          case 'Resource Gathering':
+            div2.className = 'card text-white bg-success mx-auto my-2'
+            break;
+          case 'Research':
+            div2.className = 'card text-white bg-primary mx-auto my-2'
+            break;
+          case 'Might Growth':
+            div2.className = 'card text-white bg-info mx-auto my-2'
+            break;
+          case 'Construction':
+            div2.className = 'card text-white bg-secondary mx-auto my-2'
+            break;
+          default:
+            div2.className = 'card mx-auto  my-2'
+        }
+
+        div2.style = 'width: 20rem;'
+        div2.appendChild(div1)
+        return div2
+      }
+
+      function findQ(i) {
+        var q;
+        switch (i) {
+          case 1:
+            q = 'Troop Training'
+            break;
+          case 2:
+            q = 'Monster Slaying'
+            break;
+          case 3:
+            q = 'Resource Gathering'
+            break;
+          case 4:
+            q = 'Research'
+            break;
+          case 5:
+            q = 'Troop Training'
+            break;
+          case 6:
+            q = 'Monster Slaying'
+            break;
+          case 7:
+            q = 'Might Growth'
+            break;
+          case 8:
+            q = 'Resource Gathering'
+            break;
+          case 9:
+            q = 'Troop Training'
+            break;
+          case 10:
+            q = 'Monster Slaying'
+            break;
+          case 11:
+            q = 'Construction'
+            break;
+          default:
+            q = 'ERROR'
+        }
+        return q
+      }
+    }
+
+  </script>
+</body>
+
+</html>
