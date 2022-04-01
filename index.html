@@ -79,8 +79,8 @@
         <li>Quests are an important source of gems, speedups, and resources in Kingdoms of Heckfire. If you want to rank higher on the
             leaderboards you need to complete as many as possible.</li>
         <li>All quests are 55 minutes long and start at five past the hour.</li>
-        <li>Quests repeat every 11 hours. Some quests such as Troop Training and Monster Slaying occur more often
-            than others.</li>
+        <!--<li>Quests repeat every 14 hours. Some quests such as Troop Training and Monster Slaying occur more often
+            than others.</li>-->
         <li>To earn points in a quest, you need to finish the activity within the quest period. Starting to
             gather, build, research, or train troops before the quest starts is an effective strategy to gain an edge.</li>
         <li>You only compete against other users in your realm and in your bracket range. The brackets
@@ -118,10 +118,10 @@
 
     function update() {
       
-      var one = DateTime.fromISO('2018-02-13T06:05:00Z');
+      var one = DateTime.fromISO('2018-02-13T06:00:00Z');
       var ct = DateTime.local();
       var int = Interval.fromDateTimes(one, ct).length('hours', true);
-      var i = Math.ceil(int - (11 * (Math.floor(int / 11))));
+      var i = Math.ceil(int - (14 * (Math.floor(int / 14))));
       var t2 = (Math.ceil(int) - int) * 60;
       var s = Math.round((t2 - Math.floor(t2)) * 60)
       t2 = Math.floor(t2);
@@ -205,6 +205,9 @@
           case 'Might Growth':
             div2.className = 'card text-white bg-info mx-auto my-2'
             break;
+          case 'Dragon Growth':
+            div2.className = 'card text-black bg-light mx-auto my-2'
+            break;
           case 'Construction':
             div2.className = 'card text-white bg-secondary mx-auto my-2'
             break;
@@ -212,7 +215,7 @@
             div2.className = 'card mx-auto  my-2'
         }
 
-        div2.style = 'width: 20rem;'
+        div2.style = 'width: 90%;'
         div2.appendChild(div1)
         return div2
       }
@@ -221,37 +224,46 @@
         var q;
         switch (i) {
           case 1:
-            q = 'Troop Training'
+            q = 'Resource Gathering'
             break;
           case 2:
-            q = 'Monster Slaying'
+            q = 'Troop Training'
             break;
           case 3:
-            q = 'Resource Gathering'
+            q = 'Idol Growth'
             break;
           case 4:
-            q = 'Research'
+            q = 'Monster Slaying'
             break;
           case 5:
-            q = 'Troop Training'
+            q = 'Construction'
             break;
           case 6:
-            q = 'Monster Slaying'
-            break;
-          case 7:
-            q = 'Might Growth'
-            break;
-          case 8:
-            q = 'Resource Gathering'
-            break;
-          case 9:
             q = 'Troop Training'
             break;
-          case 10:
+          case 7:
+            q = 'Dragon Growth'
+            break;
+          case 8:
             q = 'Monster Slaying'
             break;
+          case 9:
+            q = 'Might Growth'
+            break;
+          case 10:
+            q = 'Troop Training'
+            break;
           case 11:
-            q = 'Construction'
+            q = 'Research'
+            break;
+          case 12:
+            q = 'Dragon Growth'
+            break;
+          case 13:
+            q = 'Monster Slaying'
+            break;
+          case 14:
+            q = 'Might Growth'
             break;
           default:
             q = 'ERROR'
